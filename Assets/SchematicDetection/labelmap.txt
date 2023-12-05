@@ -1,0 +1,8 @@
+
+LED
+arduino
+battery
+closed switch
+diode
+open switch
+resistor
