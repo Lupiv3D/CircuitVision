@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class Anchor : MonoBehaviour
 {
-
-    public GameObject breadboard;
     private GameObject bBoard;
     private LeanDragTranslate move;
     private LeanPinchScale resize;
@@ -50,6 +48,9 @@ public class Anchor : MonoBehaviour
             move.enabled = false;
             break;
             case 3:
+            rotate.enabled = false;
+            move.enabled = false;
+            resize.enabled = false;
             resetPos();
             break;
         }
