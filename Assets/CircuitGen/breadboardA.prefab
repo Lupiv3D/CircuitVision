@@ -85972,7 +85972,7 @@ PrefabInstance:
     - target: {fileID: 581305865377102620, guid: f13720011988c42a393f3b8e9ea923ac,
         type: 3}
       propertyPath: m_Name
-      value: Led
+      value: LED
       objectReference: {fileID: 0}
     - target: {fileID: 581305865377102620, guid: f13720011988c42a393f3b8e9ea923ac,
         type: 3}
@@ -86057,7 +86057,7 @@ PrefabInstance:
     - target: {fileID: 581305865377102620, guid: 1d3a2ba2a88e9114d9c4c2120b1ce668,
         type: 3}
       propertyPath: m_Name
-      value: Diode
+      value: Resistor
       objectReference: {fileID: 0}
     - target: {fileID: 581305865377102620, guid: 1d3a2ba2a88e9114d9c4c2120b1ce668,
         type: 3}

@@ -29,6 +29,7 @@ public class CircuitBuild : MonoBehaviour
         else showTarget(currentStep);
         
         currentStep++;
+        if (currentStep == 1) UI.Instance.infoButton.SetActive(true);
         GameManager.Instance.currentStep++;
     }
 

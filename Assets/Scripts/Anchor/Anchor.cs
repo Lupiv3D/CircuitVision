@@ -53,6 +53,11 @@ public class Anchor : MonoBehaviour
             resize.enabled = false;
             resetPos();
             break;
+            case 4:
+            rotate.enabled = false;
+            move.enabled = false;
+            resize.enabled = false;
+            break;
         }
     }
 

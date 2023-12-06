@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -28,12 +29,25 @@ public class UI : MonoBehaviour
 
     private Anchor anchor;
 
+    [Header("AR Overlay")]
     public GameObject [] transformButtons;
 
     private CircuitBuild circuitBuild;
 
     public GameObject[] listMenu;
     public GameObject listSteps;
+
+    public GameObject confirmPrompt;
+    public TMP_Text confirmText;
+    public Button confirmButton;
+
+    public GameObject infoMenu;
+    public GameObject [] infoTexts1;
+    public GameObject [] infoTexts2;
+
+
+    public GameObject infoButton;
+
 
     [Header("Create Project")]
     public TMP_InputField projName;
@@ -94,12 +108,12 @@ public class UI : MonoBehaviour
             StartCoroutine(loadScreen());
             footerCheck(4);
             SceneManager.LoadScene("MainAR");
-
         }
         else if (currentPage == 3 && SceneManager.GetActiveScene().name == "MainAR") 
         {
             BG.SetActive(true);
             hideScene.SetActive(true);
+            confirmPrompt.SetActive(false);
             footerCheck(1);
             SceneManager.LoadScene("MainUI");
         }
@@ -126,6 +140,8 @@ public class UI : MonoBehaviour
             footerButtons[0].SetActive(true);
             footerButtons[2].SetActive(true);
             footerButtons[5].SetActive(true);
+            break;
+            default:
             break;
         }
     }
@@ -235,10 +251,51 @@ public class UI : MonoBehaviour
         }
     }
 
-    //Show List Functions (AR Page)
+    //Show Popup Functions (AR Page)
     public void showList()
     {
         listSteps.SetActive(!listSteps.activeSelf);
+    }
+
+    public void showPrompt(int type)
+    {
+        switch (type)
+        {
+            case 1:
+            confirmText.text = "End Project and Return to the Home Screen?";
+            confirmButton.onClick.RemoveAllListeners();
+            confirmButton.onClick.AddListener(() => ChangePage(3));
+            break;
+            case 2:
+            confirmText.text = "Proceed to the Next Step?";
+            confirmButton.onClick.RemoveAllListeners();
+            confirmButton.onClick.AddListener(() => nextStep());
+            break;
+            default:
+            break;
+        }
+        confirmPrompt.SetActive(!confirmPrompt.activeSelf);
+    }
+
+    public void showInfo()
+    {
+        if (GameManager.Instance.boardType == 0)
+        {
+            foreach (GameObject x in infoTexts1)
+                x.SetActive(false);
+
+            infoTexts1[GameManager.Instance.currentStep-1].SetActive(true);
+        }
+        else if (GameManager.Instance.boardType == 1)
+        {
+            foreach (GameObject x in infoTexts2)
+                x.SetActive(false);
+
+            infoTexts2[GameManager.Instance.currentStep-1].SetActive(true);
+        }
+
+        
+        infoMenu.SetActive(!infoMenu.activeSelf);
     }
 
     //CircuitBuild functions
@@ -248,6 +305,6 @@ public class UI : MonoBehaviour
             circuitBuild = GameObject.FindGameObjectWithTag("BreadBoard").GetComponent<CircuitBuild>();
         
         circuitBuild.nextStep();
-        listMenu[GameManager.Instance.boardType].GetComponent<ListMenu>().colorChange();
+        confirmPrompt.SetActive(false);
     }
 }

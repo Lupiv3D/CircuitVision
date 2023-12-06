@@ -85974,7 +85974,7 @@ PrefabInstance:
     - target: {fileID: 1275735088795172307, guid: c69873f3b6e8ba84da62df8102094a7d,
         type: 3}
       propertyPath: m_Name
-      value: switch
+      value: Switch
       objectReference: {fileID: 0}
     - target: {fileID: 1275735088795172307, guid: c69873f3b6e8ba84da62df8102094a7d,
         type: 3}
@@ -86031,11 +86031,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4984650205213370831, guid: c69873f3b6e8ba84da62df8102094a7d,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c1525dccf0dc312478ed74df2a75641b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -86064,7 +86059,7 @@ PrefabInstance:
     - target: {fileID: 581305865377102620, guid: f13720011988c42a393f3b8e9ea923ac,
         type: 3}
       propertyPath: m_Name
-      value: Led
+      value: LED
       objectReference: {fileID: 0}
     - target: {fileID: 581305865377102620, guid: f13720011988c42a393f3b8e9ea923ac,
         type: 3}
@@ -86149,7 +86144,7 @@ PrefabInstance:
     - target: {fileID: 581305865377102620, guid: 1d3a2ba2a88e9114d9c4c2120b1ce668,
         type: 3}
       propertyPath: m_Name
-      value: Diode
+      value: Resistor
       objectReference: {fileID: 0}
     - target: {fileID: 581305865377102620, guid: 1d3a2ba2a88e9114d9c4c2120b1ce668,
         type: 3}
