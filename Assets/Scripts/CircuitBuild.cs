@@ -5,9 +5,9 @@ using UnityEngine;
 public class CircuitBuild : MonoBehaviour
 {
     public GameObject [] components;
-    public Material [] powerMaterials;
-    public GameObject [] powerPoints;
-    public GameObject [] powerPaths;
+    public Material powerMaterial;
+    public GameObject powerPoint;
+    public GameObject powerPath;
 
 
     private int currentStep;
@@ -16,17 +16,17 @@ public class CircuitBuild : MonoBehaviour
     void Start()
     {
         currentStep = GameManager.Instance.currentStep;
-        totalSteps = components.Length + 1;
+        totalSteps = components.Length;
     }
 
     public void nextStep()
     {
         deactivateAll();
 
-        if (currentStep == 0) highlightPower(0);
-        else if (currentStep == totalSteps) highlightPower(1);
+        if (currentStep == 0) showTarget(0);
+        else if (currentStep == totalSteps) highlightPower();
         else if (currentStep == totalSteps+1) UI.Instance.hintText.text = "Circuit Completed!";
-        else showTarget(currentStep-1);
+        else showTarget(currentStep);
         
         currentStep++;
         GameManager.Instance.currentStep++;
@@ -38,19 +38,18 @@ public class CircuitBuild : MonoBehaviour
         UI.Instance.hintText.text = "Connect the " + components[step].name + " in the highlighted area";
     }
 
-    private void highlightPower(int power)
+    private void highlightPower()
     {
-        powerPaths[power].SetActive(true);
-        powerPoints[power].GetComponent<MeshRenderer>().material = powerMaterials[power];
+        powerPath.SetActive(true); 
+        powerPoint.GetComponent<MeshRenderer>().material = powerMaterial;
 
         UI.Instance.hintText.text = "Connect the wire in the highlighted points";
     }
 
     private void deactivateAll()
     {
+        powerPath.SetActive(false);
         foreach (GameObject c in components)
             c.SetActive(false);
-        foreach (GameObject p in powerPaths)
-            p.SetActive(false);
     }
 }

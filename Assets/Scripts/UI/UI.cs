@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -31,9 +32,13 @@ public class UI : MonoBehaviour
 
     private CircuitBuild circuitBuild;
 
+    public GameObject[] listMenu;
+    public GameObject listSteps;
+
     [Header("Create Project")]
     public TMP_InputField projName;
     public Image image;
+
 
 
 
@@ -159,6 +164,8 @@ public class UI : MonoBehaviour
 
         GameManager.Instance.currentStep = 0;
         GameManager.Instance.setBoardType();
+
+        listMenu[GameManager.Instance.boardType].SetActive(true);
     }
 
     //Load screen to AR Page
@@ -228,6 +235,12 @@ public class UI : MonoBehaviour
         }
     }
 
+    //Show List Functions (AR Page)
+    public void showList()
+    {
+        listSteps.SetActive(!listSteps.activeSelf);
+    }
+
     //CircuitBuild functions
     public void nextStep()
     {
@@ -235,6 +248,6 @@ public class UI : MonoBehaviour
             circuitBuild = GameObject.FindGameObjectWithTag("BreadBoard").GetComponent<CircuitBuild>();
         
         circuitBuild.nextStep();
+        listMenu[GameManager.Instance.boardType].GetComponent<ListMenu>().colorChange();
     }
-
 }

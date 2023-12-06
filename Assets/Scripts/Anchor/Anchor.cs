@@ -59,5 +59,7 @@ public class Anchor : MonoBehaviour
     public void resetPos()
     {
         bBoard.transform.localPosition = new Vector3(0,0,0);
+        bBoard.transform.localScale = new Vector3(1,1,1);
+        bBoard.transform.localEulerAngles = new Vector3(0,0,0);
     }
 }

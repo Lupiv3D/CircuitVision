@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public int progress;
 
     public GameObject [] boards;
-    private int boardType;
+    public int boardType;
     public GameObject requiredBoard;
 
 
