@@ -6,19 +6,18 @@ CSCI321 Capstone Project of Team Legionnaires from the University of Wollongong 
 
 CircuitVision is an augmented-reality learning app that allows users to visualize breadboard assembly through their phone.
 
-# Key features
+## Key features
 - Schematic Detection
 - AR overlays for placemnet guidance
 - Save progress and resume from last checkpoint
 - Component recognition and information
 
-# How to Install
-
 ## Prerequisites
 Before you can run this project, you need to ensure that your system meets the following requirements:
 
 ### For Unity
-- **Unity Editor**: [Specify the version].
+- **Unity Editor**: 2022.3.13f1.
+- **For AR**:Apple ARKit package in unity. 
 - **iOS Build Support**: Included in Unity installation.
 - **Apple Developer Account**: Required for deploying to iOS devices.
 - **Xcode**: For building and deploying to iOS.
@@ -42,7 +41,7 @@ Follow these steps to get your development environment set up:
 
 1. **Clone the Repository**
 ```bash
-git clone https://github.com/yourusername/yourrepository.git
+git clone https://github.com/Lupiv3D/CircuitVision.git
 ```
 3. **Unity Setup**
 - Open the project in Unity.
