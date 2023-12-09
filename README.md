@@ -1,4 +1,4 @@
-# CircuitVision
+![image](https://github.com/Lupiv3D/CircuitVision/assets/81799106/03f0b106-cb61-4350-a221-86376d67d645)# CircuitVision
  ![Static Badge](https://img.shields.io/badge/UOWD-CSIT%20321%20final%20project-blue)
 
 CSCI321 Capstone Project of Team Legionnaires from the University of Wollongong Dubai.
@@ -43,9 +43,10 @@ Follow these steps to get your development environment set up:
 ```bash
 git clone https://github.com/Lupiv3D/CircuitVision.git
 ```
-3. **Unity Setup**
+2. **Unity Setup**
 - Open the project in Unity.
 - Switch the build platform to iOS in Unity’s Build Settings.
+- ![iOS Build module is required](https://i.postimg.cc/pVCSq1g1/Sw-itch-to-i-OS-Build.png)
 
 3. **XAMPP Setup**
 - Install XAMPP from [XAMPP Download Link].
@@ -62,5 +63,6 @@ git clone https://github.com/Lupiv3D/CircuitVision.git
 6. **iOS Device Testing**
 - Connect your iOS device.
 - In Xcode, configure your developer account and provisioning profile.
+- ![Provisioning profile is required](https://i.postimg.cc/3JPFBXJc/xcode-Build.png)
 
 
