@@ -64,5 +64,6 @@ git clone https://github.com/Lupiv3D/CircuitVision.git
 - Connect your iOS device.
 - In Xcode, configure your developer account and provisioning profile.
 ![Provisioning profile is required](https://i.postimg.cc/gjrknLCV/xcode-Build.png)
+- Build the Unity-iPhone project with the iOS device still connected
 
 
