@@ -41,8 +41,10 @@ Before you can run this project, you need to ensure that your system meets the f
 Follow these steps to get your development environment set up:
 
 1. **Clone the Repository**
-
-2. **Unity Setup**
+```bash
+git clone https://github.com/yourusername/yourrepository.git
+```
+3. **Unity Setup**
 - Open the project in Unity.
 - Switch the build platform to iOS in Unity’s Build Settings.
 
@@ -62,6 +64,4 @@ Follow these steps to get your development environment set up:
 - Connect your iOS device.
 - In Xcode, configure your developer account and provisioning profile.
 
-
-# How to Use
 
