@@ -49,16 +49,22 @@ git clone https://github.com/Lupiv3D/CircuitVision.git
 ![iOS Build module is required](https://i.postimg.cc/76FQTpcK/Sw-itch-to-i-OS-Build.png)
 
 3. **XAMPP Setup**
-- Install XAMPP from [XAMPP Download Link].
+- Install XAMPP from [XAMPP](https://www.apachefriends.org/index.html).
 - Start Apache and MySQL services.
+
+  
+![start Apache](https://github.com/Lupiv3D/CircuitVision/assets/118269650/e187f9b2-d491-4a72-a8c1-2461fb07fdd7)
+
+![Start MySQL](https://github.com/Lupiv3D/CircuitVision/assets/118269650/8f905408-495a-4315-a6c2-9287ad233e58)
 
 4. **Database Setup**
 - Access phpMyAdmin at `http://localhost/phpmyadmin`.
-- Create your project's database and import any necessary SQL files.
+- Import the database into the server to create the necessary tables.
 
 5. **API Setup**
-- Place your PHP project files in the `htdocs` folder of XAMPP.
+- Create a folder in `htdocs` and place your PHP project files.
 - Ensure the Unity project is configured to communicate with your local PHP API (adjust URLs/endpoints as needed).
+  - In the C# file(registration) change the URLs in each function.
 
 6. **iOS Device Testing**
 - Connect your iOS device.
