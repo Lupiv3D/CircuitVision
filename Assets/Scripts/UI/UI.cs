@@ -88,7 +88,7 @@ public class UI : MonoBehaviour
 
     private void pageCheck()
     {
-        if (currentPage == 3 && !(SceneManager.GetActiveScene().name == "MainAR"))
+        if (currentPage == 3 && !(SceneManager.GetActiveScene().name == "MainAR" || SceneManager.GetActiveScene().name == "MainAR2"))
         {
             if(!footer.activeSelf) footer.SetActive(true);
             footerCheck(1);
@@ -109,7 +109,14 @@ public class UI : MonoBehaviour
             footerCheck(4);
             SceneManager.LoadScene("MainAR");
         }
-        else if (currentPage == 3 && SceneManager.GetActiveScene().name == "MainAR") 
+        else if (currentPage == 8)
+        {
+            BG.SetActive(false);
+            StartCoroutine(loadScreen());
+            footerCheck(4);
+            SceneManager.LoadScene("MainAR2");
+        }
+        else if (currentPage == 3 && (SceneManager.GetActiveScene().name == "MainAR" || SceneManager.GetActiveScene().name == "MainAR2")) 
         {
             BG.SetActive(true);
             hideScene.SetActive(true);

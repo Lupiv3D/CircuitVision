@@ -4306,19 +4306,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7467831029596706337}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7699282832963922105}
-        m_TargetAssemblyTypeName: UI, Assembly-CSharp
-        m_MethodName: ChangePage
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 6
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &1127614703703484059
 GameObject:
   m_ObjectHideFlags: 0
@@ -4893,6 +4881,7 @@ MonoBehaviour:
   - {fileID: 7909913230260966295}
   - {fileID: 2693956238184306665}
   - {fileID: 4087098356523037927}
+  - {fileID: 4087098356523037927}
   footer: {fileID: 8790962285796829665}
   footerButtons:
   - {fileID: 4659393483507042162}
@@ -5335,7 +5324,7 @@ GameObject:
   - component: {fileID: 1968391727635223347}
   m_Layer: 5
   m_Name: infoPanels
-  m_TagString: Untagged
+  m_TagString: info
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22092,7 +22081,7 @@ GameObject:
   - component: {fileID: 4196411979186218666}
   m_Layer: 5
   m_Name: InfoButton
-  m_TagString: Untagged
+  m_TagString: info
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25668,7 +25657,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 7
+          m_IntArgument: 8
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

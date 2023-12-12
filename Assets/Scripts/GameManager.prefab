@@ -52,6 +52,6 @@ MonoBehaviour:
   - {fileID: 756670523409433936, guid: 77f12536a838341969d777a709fbdd4d, type: 3}
   - {fileID: 756670523409433936, guid: 7e11d3a8c7b42456eb36aecc8d0318ac, type: 3}
   - {fileID: 756670523409433936, guid: a7eca77c1304a4fa1bcf298e501c63b6, type: 3}
-  - {fileID: 756670523409433936, guid: 5b4b2a8a97fa245ee9b0c3457067b8b1, type: 3}
+  boardType: 0
   requiredBoard: {fileID: 756670523409433936, guid: 77f12536a838341969d777a709fbdd4d,
     type: 3}

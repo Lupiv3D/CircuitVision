@@ -9,8 +9,9 @@ public class Main : MonoBehaviour
 
     public Registration Registration;
     public Login login;
-   /* public UserInfo UserInfo;
-    public GameObject UserProFile;*/
+    public UserInfo UserInfo;
+    public GameObject UserProFile;
+    public SsdSample ssdSample;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,7 @@ public class Main : MonoBehaviour
             Destroy(gameObject);
         }
         Registration = GetComponent<Registration>();
-      /*  UserInfo = GetComponent<UserInfo>();*/
+        UserInfo = GetComponent<UserInfo>();
+        ssdSample = GetComponent<SsdSample>();
     }
 }

@@ -7008,15 +7008,9 @@ MonoBehaviour:
   - {fileID: 6184929748695300535}
   - {fileID: 16855752508896800}
   - {fileID: 1624112316993252408}
-  powerMaterials:
-  - {fileID: 2100000, guid: ae9c05b50315449e286f360226abba01, type: 2}
-  - {fileID: 2100000, guid: 9d444246ed5724568aaacc246bdb8b82, type: 2}
-  powerPoints:
-  - {fileID: 4741278375338162799}
-  - {fileID: 273872001405962347}
-  powerPaths:
-  - {fileID: 6755092434339857462}
-  - {fileID: 723189184779170683}
+  powerMaterial: {fileID: 0}
+  powerPoint: {fileID: 0}
+  powerPath: {fileID: 0}
 --- !u!1 &779011864183911531
 GameObject:
   m_ObjectHideFlags: 0

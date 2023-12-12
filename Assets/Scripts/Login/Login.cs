@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+
 public class Login : MonoBehaviour
 {
 
@@ -17,7 +18,7 @@ public class Login : MonoBehaviour
         LoginButton.onClick.AddListener(() =>
         {
             StartCoroutine(Main.instance.Registration.Login(usernameInput.text, passwordInput.text));
-            
+
         });
     }
 
