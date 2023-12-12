@@ -1,36 +1,65 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class infoBehaviour : MonoBehaviour
+public class gaze : MonoBehaviour
 {
-    const float SPEED = 6f;
+    // List to store infoBehaviour components
+    List<infoBehaviour> infos = new List<infoBehaviour>();
 
-    [SerializeField]
-    Transform SectionInfo;
-
-    Vector3 dessiredScale = Vector3.zero;
-
-      void Update()
+    // Start is called before the first frame update
+    void Start()
     {
-        SectionInfo.localScale=Vector3.Lerp(SectionInfo.localScale, dessiredScale,Time.deltaTime * SPEED);
-
-        
+        // Find all infoBehaviour components in the scene and add them to the list
+        infos = FindObjectsOfType<infoBehaviour>().ToList();
     }
 
-    public void OpenInfo()
+    // Update is called once per frame
+    void Update()
     {
-        dessiredScale = Vector3.one;
+        // Check if a raycast from the camera is hitting any object
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit))
+        {
+            GameObject go = hit.collider.gameObject;
+
+            // If the hit object has the "Component" tag
+            if (go.CompareTag("Component"))
+            {
+                // Open the info related to the hit component
+                OpenInfo(go.GetComponent<infoBehaviour>());
+                print("hi"); // Output "hi" to the console
+            }
+        }
+        else
+        {
+            // If no object is hit, close all infoBehaviours
+            CloseAll();
+        }
     }
 
-    public void ClosInfo()
+    // Open the information associated with a specific infoBehaviour
+    void OpenInfo(infoBehaviour desiredInfo)
     {
-        dessiredScale= Vector3.zero;
+        foreach (infoBehaviour info in infos)
+        {
+            if (info == desiredInfo)
+            {
+                info.OpenInfo(); // Open the desired infoBehaviour
+            }
+            else
+            {
+                info.ClosInfo(); // Close other infoBehaviours
+            }
+        }
     }
 
-    internal List<infoBehaviour> ToList()
+    // Close all infoBehaviours
+    void CloseAll()
     {
-        throw new NotImplementedException();
+        foreach (infoBehaviour info in infos)
+        {
+            info.ClosInfo(); // Close all infoBehaviours
+        }
     }
 }

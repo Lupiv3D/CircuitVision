@@ -72,10 +72,7 @@ public class UI : MonoBehaviour
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }
 
-    // void Update()
-    // {
-        
-    // }
+   
 
     public void ChangePage(int pageNum)
     {
@@ -123,7 +120,7 @@ public class UI : MonoBehaviour
             confirmPrompt.SetActive(false);
             footerCheck(1);
             SceneManager.LoadScene("MainUI");
-        }
+        }\
     }
 
     private void footerCheck(int num)
