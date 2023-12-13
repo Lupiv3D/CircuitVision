@@ -25,10 +25,7 @@ public class Registration : MonoBehaviour
 
     public Button CProjectButton;
 
-    /*public void StartLogin()
-    {
-        StartCoroutine(Login(username.text, password.text));
-    }*/
+   
 
     private void Awake()
     {
@@ -54,7 +51,7 @@ public class Registration : MonoBehaviour
     {
 
         string projectName = Projectname.text; // Get the project name from the input field
-        string components = Main.instance.ssdSample.GetDetectedComponentsAsString();
+        string components = GameManager.Instance.componentsNeeded;
         Debug.Log("ssdSample is null: " + (Main.instance.ssdSample == null));
         Debug.Log(components);
         StartCoroutine(CreateProject(projectName, components, OnProjectCreated));
@@ -63,27 +60,20 @@ public class Registration : MonoBehaviour
 
     public void OnNextStepClicked(string projectName)
     {
-        /*string name = GameManager.Instance.projectName; // Get current project ID from GameManager
-        string projectID = GameManager.Instance.projectid; // Get the username*/
-        /*string projectName = projectButton.text;
-        Debug.Log("Project Name: " + projectName);*/
+        
         StartCoroutine(UpdateCurrentStep(projectName));
     }
 
 
 
-    /*public void ShowUserProjects()
-    {
-        StartCoroutine(GetUserProjects(Main.instance.UserInfo.Username));
-    }*/
 
-    public IEnumerator Login(string username, string password)
+    public IEnumerator Login(string username, string password, TMP_Text warning)
     {
         WWWForm form = new WWWForm();
         form.AddField("loginUser", username);
         form.AddField("loginPass", password);
 
-        using (UnityWebRequest www = UnityWebRequest.Post("http://172.20.10.7/321test/login.php", form))
+        using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/321test/login.php", form))
         {
             yield return www.SendWebRequest();
 
@@ -93,19 +83,18 @@ public class Registration : MonoBehaviour
             }
             else
             {
-                Debug.Log(www.downloadHandler.text);
-                Main.instance.UserInfo.SetInfo(username, password);
-                Main.instance.UserInfo.SetUsername(www.downloadHandler.text);
                 if (www.downloadHandler.text == username)
                 {
-                    Debug.Log(www.downloadHandler.text);
                     UI.Instance.ChangePage(3);
-                    Main.instance.UserProFile.SetActive(true);
-                    //Main.instance.login.gameObject.SetActive(false);
+                    Debug.Log(www.downloadHandler.text);
+                    Main.instance.UserInfo.SetInfo(username, password);
+                    Main.instance.UserInfo.SetUsername(www.downloadHandler.text);
+                    Debug.Log(www.downloadHandler.text + "hello world");
+
                 }
                 else
                 {
-                    warn.SetText(www.downloadHandler.text);
+                    warning.SetText(www.downloadHandler.text);
                     Debug.Log(www.downloadHandler.text);
                 }
             }
@@ -119,7 +108,7 @@ public class Registration : MonoBehaviour
         form.AddField("loginUser", username);
         form.AddField("loginPass", password);
 
-        using (UnityWebRequest www = UnityWebRequest.Post("http://172.20.10.7/321test/register.php", form))
+        using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/321test/register.php", form))
         {
             yield return www.SendWebRequest();
 
@@ -141,7 +130,7 @@ public class Registration : MonoBehaviour
 
         WWWForm form = new WWWForm();
         form.AddField("Username", Username);
-        using (UnityWebRequest www = UnityWebRequest.Post("http://172.20.10.7/321test/getitem.php", form))
+        using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/321test/getitem.php", form))
         {
             yield return www.Send();
 
@@ -165,7 +154,7 @@ public class Registration : MonoBehaviour
 
         WWWForm form = new WWWForm();
         form.AddField("projectID", projectID);
-        using (UnityWebRequest www = UnityWebRequest.Post("http://172.20.10.7/321test/showprojs.php", form))
+        using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/321test/showprojs.php", form))
         {
             yield return www.Send();
 
@@ -184,26 +173,6 @@ public class Registration : MonoBehaviour
         }
     }
 
-    IEnumerator getimage(string username)
-    {
-        WWWForm form = new WWWForm();
-        form.AddField("loginUser", username);
-
-        using (UnityWebRequest www = UnityWebRequest.Post("http://172.20.10.7/321test/images.php", form))
-        {
-            yield return www.SendWebRequest();
-
-            if (www.isNetworkError || www.isHttpError)
-            {
-                Debug.Log(www.error);
-            }
-            else
-            {
-                Debug.Log(www.downloadHandler.text);
-                string jsonArray = www.downloadHandler.text;
-            }
-        }
-    }
 
     public IEnumerator CreateProject(string projectName, string components, System.Action<string> onProjectCreated)
     {
@@ -211,7 +180,7 @@ public class Registration : MonoBehaviour
         form.AddField("projectName", GameManager.Instance.currentProject);
         form.AddField("components", GameManager.Instance.componentsNeeded);
 
-        using (UnityWebRequest www = UnityWebRequest.Post("http://172.20.10.7/321test/createproj.php", form))
+        using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/321test/createproj.php", form))
         {
             yield return www.SendWebRequest();
 
@@ -235,7 +204,7 @@ public class Registration : MonoBehaviour
         form.AddField("Username", Username);
         form.AddField("projectID", projectID);
 
-        using (UnityWebRequest www = UnityWebRequest.Post("http://172.20.10.7/321test/createuserproj.php", form))
+        using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/321test/createuserproj.php", form))
         {
             yield return www.SendWebRequest();
 
@@ -257,9 +226,9 @@ public class Registration : MonoBehaviour
     {
         WWWForm form = new WWWForm();
         form.AddField("projectName", projectName);
-        //form.AddField("projectID", projectID); // If your PHP script requires the username
+        
 
-        using (UnityWebRequest www = UnityWebRequest.Post("http://172.20.10.7/321test/cstep.php", form))
+        using (UnityWebRequest www = UnityWebRequest.Post("http://localhost/321test/cstep.php", form))
         {
             yield return www.SendWebRequest();
 
@@ -276,17 +245,3 @@ public class Registration : MonoBehaviour
     }
 
 }
-
-/* Main.instance.UserInfo.SetInfo(username, password);
-                     Main.instance.UserInfo.SetUsername(www.downloadHandler.text);*/
-
-
-/*if (www.downloadHandler.text.Contains("Wrong Credentials") || www.downloadHandler.text.Contains("Username does not exists"))
-{
-    Debug.Log("Try again");
-}
-else
-{
-    Main.instance.UserProFile.SetActive(true);
-    Main.instance.login.gameObject.SetActive(false);
-}*/

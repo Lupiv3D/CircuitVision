@@ -49,7 +49,6 @@ public class Items : MonoBehaviour
             {
                 isDone = true;
                 JSONArray tempArray = JSON.Parse(itemInfo) as JSONArray;
-                //problem
                 itemInfoJson = tempArray[0].AsObject;
             };
             StartCoroutine(Main.instance.Registration.GetProjects(projectID, getItemInfoCallback));
@@ -58,7 +57,7 @@ public class Items : MonoBehaviour
 
 
             //instantiate gameobj (project prefab)
-           // Button prefab = (Button)Resources.Load("Prefabs/Container", typeof(Button));
+           
             if (test == null)
             {
                 Debug.LogError("Prefab not found in 'Prefabs/Container'");
@@ -72,8 +71,7 @@ public class Items : MonoBehaviour
 
 
             //fill projects info
-            //Container.transform.Find("Title").GetComponent<TMP_Text>().text = itemInfoJson["name"];
-
+            
             TMP_Text titleText = Container.transform.Find("Title").GetComponent<TMP_Text>();
             string instanceTitle = itemInfoJson["name"]; // The title for this specific instance
             titleText.text = instanceTitle;
@@ -84,7 +82,7 @@ public class Items : MonoBehaviour
         }
 
     }
-    // Assets/Prefabs/Container.prefab
+
 
 
 }
